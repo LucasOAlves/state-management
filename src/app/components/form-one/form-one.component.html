@@ -1,1 +1,9 @@
-<p>form-one works!</p>
+<div>
+  <form [formGroup]="form">
+    <div>
+      <span> Nome </span>
+      <input type="text" formControlName="name" />
+    </div>
+  </form>
+  <button (click)="onClickNext()">Continuar</button>
+</div>
