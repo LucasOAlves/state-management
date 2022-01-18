@@ -28,7 +28,7 @@ export class FormTwoComponent implements OnInit {
   }
 
   onClickNext() {
-    this.nextStepEventEmitter.emit('');
+    this.nextStepEventEmitter.emit(this.form.value);
   }
 
   onClickBack() {

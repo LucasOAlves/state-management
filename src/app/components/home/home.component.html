@@ -1,16 +1,16 @@
 <app-form-one
   *ngIf="step === 0"
-  (nextStepEventEmitter)="nextStep()"
+  (nextStepEventEmitter)="nextStep($event)"
 ></app-form-one>
 
 <app-form-two
   *ngIf="step === 1"
-  (nextStepEventEmitter)="nextStep()"
+  (nextStepEventEmitter)="nextStep($event)"
   (backStepEventEmitter)="backStep()"
 ></app-form-two>
 
 <app-form-three
   *ngIf="step === 2"
-  (nextStepEventEmitter)="nextStep()"
+  (nextStepEventEmitter)="nextStep($event)"
   (backStepEventEmitter)="backStep()"
 ></app-form-three>

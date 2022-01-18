@@ -1,4 +1,7 @@
+import { SaveCustomer } from './../../store/store-customer/customer.actions';
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngxs/store';
+import { CustomerState } from 'src/app/store/store-customer/customer.state';
 
 @Component({
   selector: 'app-home',
@@ -8,15 +11,21 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   public step: number = 0;
 
-  constructor() {}
+  constructor(private store: Store) {}
 
   ngOnInit(): void {}
 
-  nextStep() {
+  nextStep(event: any) {
+    this.saveCustomer(event);
     this.step++;
   }
 
   backStep() {
     this.step--;
+  }
+
+  saveCustomer(event: any) {
+    const customerStore = this.store.selectSnapshot(CustomerState.getCustomer);
+    this.store.dispatch(new SaveCustomer({ ...customerStore, ...event }));
   }
 }

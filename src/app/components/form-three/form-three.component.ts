@@ -19,16 +19,16 @@ export class FormThreeComponent implements OnInit {
 
   initializeForm(): FormGroup {
     return this.formBuilder.group({
-      email: [''],
+      phone: [''],
     });
   }
 
-  get email() {
-    return this.form.get('email');
+  get phone() {
+    return this.form.get('phone');
   }
 
   onClickNext() {
-    this.nextStepEventEmitter.emit('');
+    this.nextStepEventEmitter.emit(this.form.value);
   }
 
   onClickBack() {

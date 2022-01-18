@@ -27,6 +27,6 @@ export class FormOneComponent implements OnInit {
   }
 
   onClickNext() {
-    this.nextStepEventEmitter.emit('');
+    this.nextStepEventEmitter.emit(this.form.value);
   }
 }
