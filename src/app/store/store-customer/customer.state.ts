@@ -1,8 +1,10 @@
-import { CustomerService } from './customer.service';
 import { Injectable } from '@angular/core';
+
 import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
+
 import { GetCustomer, SaveCustomer } from './customer.actions';
 import { ICustomer } from './customer.interface';
+import { CustomerService } from './customer.service';
 
 /**
  * Inicialização do estado
@@ -88,7 +90,7 @@ export class CustomerState {
   @Action(SaveCustomer)
   async getCargos(
     { patchState }: StateContext<ICustomer>,
-    { customer }: SaveCustomer
+    { customer }: SaveCustomer,
   ) {
     patchState({ loading: true });
     patchState({ error: null });

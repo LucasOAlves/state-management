@@ -1,50 +1,67 @@
 {
-  "root": true,
-  "ignorePatterns": [
-    "projects/**/*"
-  ],
-  "overrides": [
-    {
-      "files": [
-        "*.ts"
-      ],
-      "parserOptions": {
-        "project": [
-          "tsconfig.json"
-        ],
-        "createDefaultProgram": true
-      },
-      "extends": [
-        "plugin:@angular-eslint/recommended",
-        "plugin:@angular-eslint/template/process-inline-templates"
-      ],
-      "rules": {
-        "@angular-eslint/directive-selector": [
-          "error",
-          {
-            "type": "attribute",
-            "prefix": "app",
-            "style": "camelCase"
-          }
-        ],
-        "@angular-eslint/component-selector": [
-          "error",
-          {
-            "type": "element",
-            "prefix": "app",
-            "style": "kebab-case"
-          }
-        ]
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint", "import-helpers"],
+  "extends": ["plugin:@angular-eslint/recommended", "airbnb-typescript/base"],
+  "rules": {
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 1,
+        "maxEOF": 1
       }
-    },
-    {
-      "files": [
-        "*.html"
-      ],
-      "extends": [
-        "plugin:@angular-eslint/template/recommended"
-      ],
-      "rules": {}
-    }
-  ]
+    ],
+    "semi": [2, "always"],
+    // Regras customizadas depois do airbnb
+    "linebreak-style": "off",
+    "max-len": [
+      "error",
+      {
+        "code": 140
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "no-restricted-globals": "off",
+    "consistent-return": "off",
+    "max-classes-per-file": "off",
+    "no-useless-constructor": "off",
+    "@typescript-eslint/no-useless-constructor": ["off"],
+    "no-empty-function": "off",
+    "@typescript-eslint/no-empty-function": ["off"],
+    "@typescript-eslint/space-infix-ops": ["off"],
+    "@typescript-eslint/object-curly-spacing": ["off"],
+    "no-param-reassign": "off",
+    "class-methods-use-this": "off",
+    "no-case-declarations": "off",
+    "no-plusplus": "off",
+    "no-console": "off",
+    "import/no-extraneous-dependencies": "off",
+    "no-return-assign": "off",
+    "@angular-eslint/no-empty-lifecycle-method": "off",
+    "import/extensions": ["off"],
+    // Ordenação dos imports
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always",
+        "groups": [
+          "/^@angular/",
+          "/^@shared/",
+          "module",
+          ["parent", "sibling", "index"]
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "ignoreCase": true
+        }
+      }
+    ]
+  }
 }

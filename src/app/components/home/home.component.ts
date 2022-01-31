@@ -1,8 +1,9 @@
-import { SaveCustomer } from './../../store/store-customer/customer.actions';
 import { Component } from '@angular/core';
-import { CustomerState } from 'src/app/store/store-customer/customer.state';
 
 import { Store } from '@ngxs/store';
+import { CustomerState } from 'src/app/store/store-customer/customer.state';
+
+import { SaveCustomer } from './../../store/store-customer/customer.actions';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -11,7 +12,7 @@ import { Store } from '@ngxs/store';
 export class HomeComponent {
   public step: number = 0;
 
-  constructor(private store: Store) {}
+  constructor(private store: Store) { }
 
   nextStep(event: any) {
     this.saveCustomer(event);

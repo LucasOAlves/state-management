@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class FormOneComponent implements OnInit {
   @Output() nextStepEventEmitter: EventEmitter<any> = new EventEmitter<any>();
+
   public form: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {}

@@ -8,9 +8,9 @@ describe('FormThreeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FormThreeComponent ]
+      declarations: [ FormThreeComponent ],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
