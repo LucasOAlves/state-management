@@ -1,19 +1,17 @@
 import { SaveCustomer } from './../../store/store-customer/customer.actions';
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngxs/store';
+import { Component } from '@angular/core';
 import { CustomerState } from 'src/app/store/store-customer/customer.state';
 
+import { Store } from '@ngxs/store';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   public step: number = 0;
 
   constructor(private store: Store) {}
-
-  ngOnInit(): void {}
 
   nextStep(event: any) {
     this.saveCustomer(event);
